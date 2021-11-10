@@ -24,10 +24,6 @@ export class AppComponent  {
 
 colors: string[] =["Blue", "red"];
 
-flights = [
-{origin:"Denva", destination: "miami"},
-{origin:"NYC", destination: "San Frnacisco"},
-{origin:"NJ", destination: "Oakland"},
-];
+
 
 }
