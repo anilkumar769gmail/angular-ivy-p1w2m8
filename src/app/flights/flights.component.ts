@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Flight } from './flight.model';
-
+import { FlightService } from '../flight.service';
 @Component({
   selector: 'app-flights',
   templateUrl: './flights.component.html',
@@ -8,14 +8,16 @@ import { Flight } from './flight.model';
 })
 export class FlightsComponent implements OnInit {
 
-  flights: Flight[]= [
-    {origin:"Denver", destination: "miami", flightNumber: 500,
-     depart: new Date(), arrive: new Date(), nonstop: true, snacks: "crackers"}
-   
-    ];
-  constructor() { }
+  flights: Flight[] = [];
+
+  constructor(private flightService: FlightService) { }
 
   ngOnInit(): void {
+
+    this.flightService.getFlights().subscribe(payload => {
+      this.flights = payload;
+    });
+
   }
 
 }
